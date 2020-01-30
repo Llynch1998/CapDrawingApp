@@ -1,0 +1,19 @@
+{
+  "name": "drawingapp",
+  "version": "1.0.0",
+  "description": "drawing app for capstone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JordynA97/CapDrawingApp.git"
+  },
+  "author": "Jordyn Antinore and Wyatt Lynch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JordynA97/CapDrawingApp/issues"
+  },
+  "homepage": "https://github.com/JordynA97/CapDrawingApp#readme"
+}
