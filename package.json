@@ -6,7 +6,7 @@
     "npm": "6.9.0"
   },
   "description": "drawing app for capstone",
-  "main": "server.js",
+  "main": "main.js",
   "scripts": {
     "start": "node ./src/server.js",
     "pretest": "eslint ./src --fix",

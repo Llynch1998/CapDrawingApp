@@ -1,20 +1,29 @@
-console.log("hi");
+const http = require('http');
 
-var http = require('http');
-var fs = require('fs');
+const port = process.env.PORT || process.env.NODE_PORT || 3000;
+const fs = require('fs');
 
-const port = process.env.PORT || process.end.NODE_PORT || 3000;
+const html = fs.readFileSync(`${__dirname}/../html/draw-and-share-start.html`);
 
+const getHtml = (request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.write(html);
+  response.end();
+};
 
-fs.readFile('./draw-and-share-start.html', function (err, html){
-    if (err){
-        throw err;
-    }
+const onRequest = (request, response) => {
+  console.log(request.url);
 
-    http.createServer(function (err, html){
-        response.writeHeader(200, {"Content-Type": "text/html"});
-        response.write(html);
-        response.end();
+  switch (request.url) {
+    case '/':
+      getHtml(request, response);
+      break;
+    default:
+      getHtml(request, response);
+      break;
+  }
+};
 
-    }).listen(port);
-});
+http.createServer(onRequest).listen(port);
+
+console.log('listening locally');
