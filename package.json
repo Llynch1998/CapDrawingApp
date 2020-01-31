@@ -6,7 +6,7 @@
     "npm": "6.9.0"
   },
   "description": "drawing app for capstone",
-  "main": "draw-and-share-start.html",
+  "main": "server.js",
   "scripts": {
     "start": "node ./src/server.js",
     "test": "echo \"Tests complete\""
