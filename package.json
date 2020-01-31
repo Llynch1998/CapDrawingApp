@@ -1,15 +1,14 @@
 {
   "name": "drawingapp",
   "version": "1.0.0",
-  "engines":{
+  "engines": {
     "node": "12.14.1",
     "npm": "6.9.0"
   },
   "description": "drawing app for capstone",
-  "main": "index.js",
+  "main": "draw-and-share-start.html",
   "scripts": {
     "start": "node ./src/server.js",
-    "pretest": "eslint ./src --fix",
     "test": "echo \"Tests complete\""
   },
   "repository": {
@@ -26,5 +25,8 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.0"
+  },
+  "dependencies": {
+    "express-favicon": "^2.0.1"
   }
 }
