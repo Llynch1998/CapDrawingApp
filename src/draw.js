@@ -3,7 +3,7 @@
 	let ctx,dragging=false,lineWidth,strokeStyle;
 	let allPoints = [];
 	let currentLayer = [];
-	
+	let exportBtn = document.querySelector("#exportPNG");
 	//firebase
 	const DRAWINGPATH = "saveDrawings";
 	let allDrawings = {};
@@ -30,6 +30,7 @@
 		clearButton.onclick = doClear;
 		saveButton.onclick = doSave;
 		clearCloudButton.onclick = doClearCloud;
+		exportBtn.onclick = exportCanvasAsPNG;
 		window.onhashchange = onLocationHashChanged;
 	}
 	
@@ -138,6 +139,22 @@
 		console.log("changed drawing");
 	}
 	
+	function exportCanvasAsPNG() {
+		//console.log("button going through")
+	
+		var imgURL = canvas.toDataURL("image/png"); //gets canvas data as png
+	
+		var dlLink = document.createElement('a');//creates a download link
+		dlLink.download = "image";//this is the name of the file to be downloaded
+		dlLink.href = imgURL;//sets the link of the a element
+		dlLink.dataset.downloadurl = ["image/png", dlLink.download, dlLink.href].join(':');//creaetes the actual download
+	
+		document.body.appendChild(dlLink);//adds the download link
+		dlLink.click();//auto clicks the link
+		document.body.removeChild(dlLink);//deletes the link
+		//doing ^ all at the same time makes no change to the actual html page
+	}
+
 	//firebase
 	function onDataChanged(data){
 		let bigString = "";
