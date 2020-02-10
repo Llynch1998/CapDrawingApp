@@ -7,8 +7,6 @@
 	let clearButton = document.querySelector("#clearButton");
 	let saveButton = document.querySelector("#saveButton");
 	let clearCloudButton = document.querySelector("#clearCloudButton");
-	let exportBtn = document.querySelector("#exportBtn");
-
 	//firebase
 	const DRAWINGPATH = "saveDrawings";
 	let allDrawings = {};
