@@ -7,6 +7,10 @@
 	let clearButton = document.querySelector("#clearButton");
 	let saveButton = document.querySelector("#saveButton");
 	let clearCloudButton = document.querySelector("#clearCloudButton");
+
+	var dlLink;
+	var imgURL;
+
 	//firebase
 	const DRAWINGPATH = "saveDrawings";
 	let allDrawings = {};
@@ -145,16 +149,16 @@
 	function exportCanvasAsPNG() {
 		//console.log("button going through")
 	
-		var imgURL = canvas.toDataURL("image/png"); //gets canvas data as png
+		imgURL = canvas.toDataURL("image/png"); //gets canvas data as png
 	
-		var dlLink = document.createElement('a');//creates a download link
+		dlLink = document.createElement('a');//creates a download link
 		dlLink.download = "image";//this is the name of the file to be downloaded
 		dlLink.href = imgURL;//sets the link of the a element
-		dlLink.dataset.downloadurl = ["image/png", dlLink.download, dlLink.href].join(':');//creaetes the actual download
+		dlLink.dataset.downloadurl = ["image/png", dlLink.download, dlLink.href].join(':');//creates the actual download
 	
-		document.body.appendChild(dlLink);//adds the download link
-		dlLink.click();//auto clicks the link
-		document.body.removeChild(dlLink);//deletes the link
+		// document.body.appendChild(dlLink);//adds the download link
+		// dlLink.click();//auto clicks the link
+		// document.body.removeChild(dlLink);//deletes the link
 		//doing ^ all at the same time makes no change to the actual html page
 	}
 
@@ -221,7 +225,7 @@
 	   service_id: 'gmail',
 	   	template_id: 'template_r9h26Pnk',
 		template_params: {
-		 'message': 'Hey there',
+		 'image': imgURL,
 		 'name': name,
 		 'recipient': recipient,
 		}
