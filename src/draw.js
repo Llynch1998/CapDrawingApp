@@ -209,3 +209,51 @@
   
   firebase.database().ref(DRAWINGPATH).on("value",onDataChanged, onFirebaseError);
  }
+
+ function emailDrawing(){
+	//put values into variables to use when sending email
+	var recipient = document.getElementById("email").value;
+	var name = document.getElementById("emailRecipientName").value;
+
+	// Change all values to your own
+	let params = {
+	   user_id: 'user_c5WJKW86pjWQpiPmooWXU',
+	   service_id: 'gmail',
+	   	template_id: 'template_r9h26Pnk',
+		template_params: {
+		 'message': 'Hey there',
+		 'name': name,
+		 'recipient': recipient,
+		}
+	};
+
+	//customize any necessary headers
+	let headers = {
+	   "Content-type": "application/json"
+	};
+
+	//basic needs of the fetch
+	let options = {
+	   method: 'POST',
+	   headers: headers,
+	   body: JSON.stringify(params)
+	};
+
+	 //fetch the email send api
+	fetch('https://api.emailjs.com/api/v1.0/email/send', options)
+	   	.then((httpResponse) => {
+		if (httpResponse.ok) {
+		   alert("Your email has been sent!");
+		} else {
+		   	return httpResponse.text()
+			.then(text => Promise.reject(text));
+		}
+	})
+	.catch((error) => {
+		alert("Your email could not be sent: " + error);
+	});
+
+	//close the form after its sent (edit this later for when we make an overlay for it)
+	//document.getElementById("emailUploadTemplates").style.display = "none";
+}
+ 
