@@ -61,6 +61,8 @@
 		
 	}
 	
+	//change drawing to start from on drag to on mouse down.
+
 	// EVENT CALLBACK FUNCTIONS
 	function doMousedown(e){
 		dragging = true;
