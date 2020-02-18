@@ -7,14 +7,14 @@
 	let clearButton = document.querySelector("#clearButton");
 	let saveButton = document.querySelector("#saveButton");
 	let clearCloudButton = document.querySelector("#clearCloudButton");
-
+	let submitEmail = document.querySelector("#submitEmailButton");
 	var dlLink;
 	var imgURL;
 
 	//firebase
 	const DRAWINGPATH = "saveDrawings";
 	let allDrawings = {};
-	
+
 	initFirebase();
 	init();
 
@@ -38,6 +38,7 @@
 		saveButton.onclick = doSave;
 		clearCloudButton.onclick = doClearCloud;
 		exportBtn.onclick = exportCanvasAsPNG;
+		submitEmail.onclick = emailDrawing;
 		window.onhashchange = onLocationHashChanged;
 	}
 	
